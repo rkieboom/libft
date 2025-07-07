@@ -114,13 +114,13 @@ char	*ft_read_and_save(int fd, char *save)
 	char	*buff;
 	int		read_bytes;
 
-	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buff = malloc((GNL_BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
 	read_bytes = 1;
 	while (!gnl_strchr(save, '\n') && read_bytes != 0)
 	{
-		read_bytes = read(fd, buff, BUFFER_SIZE);
+		read_bytes = read(fd, buff, GNL_BUFFER_SIZE);
 		if (read_bytes == -1)
 		{
 			free(buff);
@@ -138,7 +138,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*save;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || GNL_BUFFER_SIZE <= 0)
 		return (0);
 	save = ft_read_and_save(fd, save);
 	if (!save)

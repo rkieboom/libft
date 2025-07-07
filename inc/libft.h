@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 3200
+#ifndef GNL_BUFFER_SIZE
+# define GNL_BUFFER_SIZE 3200
 #endif
 
 #ifndef LIBFT_H
@@ -61,5 +61,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 char			*get_next_line(int fd);
+
+int				ft_printf(const char *str, ...);
 
 #endif
